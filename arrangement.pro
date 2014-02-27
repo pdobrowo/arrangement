@@ -53,7 +53,7 @@ GXX_WARNING_FLAGS = \
 #
 # compiler
 #
-ARCH = "../3rdparty"
+ARCH = "../libcs/3rdparty"
 
 # architecture
 contains(QMAKE_HOST.arch, x86_64):{
@@ -106,8 +106,8 @@ QMAKE_CXXFLAGS += -fopenmp
 LIBS += -lgomp
 
 # CS
-INCLUDEPATH += "../cs"
-LIBS += -L"../bin"
+INCLUDEPATH += "../libcs/include"
+LIBS += -L"../libcs/bin"
 
 win32-g++:{
     QMAKE_CXXFLAGS += $$GXX_WARNING_FLAGS
