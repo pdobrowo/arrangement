@@ -7,6 +7,7 @@ QT += core gui opengl
 TARGET = arrangement
 TEMPLATE = app
 DESTDIR = ../bin
+CONFIG += silent
 
 GXX_WARNING_FLAGS = \
 #   -Werror                      \ # Make all warnings into errors.
