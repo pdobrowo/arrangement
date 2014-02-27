@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/img/addnew.png</file>
+        <file>resource/img/arcballcamera.png</file>
+        <file>resource/img/automatic.png</file>
+        <file>resource/img/ball.png</file>
+        <file>resource/img/bench_run.png</file>
+        <file>resource/img/bench_stop.png</file>
+        <file>resource/img/close.png</file>
+        <file>resource/img/flycamera.png</file>
+        <file>resource/img/g3.png</file>
+        <file>resource/img/h3.png</file>
+        <file>resource/img/open_arr.png</file>
+        <file>resource/img/open_dir.png</file>
+        <file>resource/img/open_sph.png</file>
+        <file>resource/img/open.png</file>
+        <file>resource/img/openfolder.png</file>
+        <file>resource/img/pred.png</file>
+        <file>resource/img/quit.png</file>
+        <file>resource/img/recalculate.png</file>
+        <file>resource/img/s3.png</file>
+        <file>resource/img/save_arr.png</file>
+        <file>resource/img/save.png</file>
+        <file>resource/img/triangles.png</file>
+        <file>resource/img/tritri.png</file>
+        <file>resource/img/mini.gif</file>
+        <file>resource/img/open_txt.png</file>
+        <file>resource/img/road.png</file>
+    </qresource>
+</RCC>

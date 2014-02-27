@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ClientForm</class>
+ <widget class="QWidget" name="ClientForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Scene</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QSplitter" name="splitterMainVertical">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QWidget" name="widgetGroupScene" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="widgetGroupSceneButtons" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QToolButton" name="toolButtonOpenSceneArr">
+            <property name="toolTip">
+             <string>Open an arrangement...</string>
+            </property>
+            <property name="text">
+             <string>Open an arrangement...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/open_arr.png</normaloff>:/resource/img/open_arr.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonSaveSceneArr">
+            <property name="toolTip">
+             <string>Save an arrangement...</string>
+            </property>
+            <property name="text">
+             <string>Save an arrangement...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/save_arr.png</normaloff>:/resource/img/save_arr.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonOpenSceneSph">
+            <property name="toolTip">
+             <string>Open a sphere tree...</string>
+            </property>
+            <property name="text">
+             <string>Open a sphere tree...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/open_sph.png</normaloff>:/resource/img/open_sph.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonOpenSceneTxt">
+            <property name="toolTip">
+             <string>Open a triangulated mesh...</string>
+            </property>
+            <property name="text">
+             <string>Open a triangulated mesh...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/open_txt.png</normaloff>:/resource/img/open_txt.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonOpenSceneDir">
+            <property name="toolTip">
+             <string>Open a triangulated scene directory...</string>
+            </property>
+            <property name="text">
+             <string>Open a triangulated scene directory...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/open_dir.png</normaloff>:/resource/img/open_dir.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonSceneCameraArcBall">
+            <property name="toolTip">
+             <string>Set arcball camera</string>
+            </property>
+            <property name="text">
+             <string>Set arcball camera</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/arcballcamera.png</normaloff>:/resource/img/arcballcamera.png</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonSceneCameraFlying">
+            <property name="toolTip">
+             <string>Set flying camera</string>
+            </property>
+            <property name="text">
+             <string>Set flying camera</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/flycamera.png</normaloff>:/resource/img/flycamera.png</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonSceneCameraAutomatic">
+            <property name="toolTip">
+             <string>Set automatic camera</string>
+            </property>
+            <property name="text">
+             <string>Set sutomatic camera</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/automatic.png</normaloff>:/resource/img/automatic.png</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacerSceneButtons">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widgetSceneViewContainer" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <property name="margin">
+           <number>0</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTabWidget" name="tabWidgetScene">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>240</height>
+          </size>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tabSceneObjects">
+          <attribute name="title">
+           <string>Objects</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetSceneObjects">
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::SingleSelection</enum>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <attribute name="horizontalHeaderStretchLastSection">
+              <bool>true</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>Type</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Visible</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Rotating</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Information</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widgetSceneObjectOperations" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <property name="margin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="labelSceneObjectDelete">
+                <property name="text">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot; &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Delete&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelSceneObjectClear">
+                <property name="text">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot; &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Clear&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacerSceneObjectOperations">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabSceneMotion">
+          <attribute name="title">
+           <string>Motion</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QWidget" name="widgetMotionMode" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_14">
+              <property name="margin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="pushButtonMotionModeBegin">
+                <property name="text">
+                 <string>Begin</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButtonMotionModeMotion">
+                <property name="text">
+                 <string>Motion</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButtonMotionModeEnd">
+                <property name="text">
+                 <string>End</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widgetMotionBegin" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <property name="margin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QGroupBox" name="groupBoxMotionBegin">
+                <property name="title">
+                 <string>Begin</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_3">
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="verticalSpacing">
+                  <number>0</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="labelMotionBeginYaw">
+                   <property name="text">
+                    <string>yaw:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBoxMotionBeginYaw">
+                   <property name="wrapping">
+                    <bool>true</bool>
+                   </property>
+                   <property name="accelerated">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximum">
+                    <double>6.280000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>0.010000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="labelMotionBeginPitch">
+                   <property name="text">
+                    <string>pitch:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBoxMotionBeginPitch">
+                   <property name="wrapping">
+                    <bool>true</bool>
+                   </property>
+                   <property name="accelerated">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximum">
+                    <double>6.280000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>0.010000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="labelMotionBeginRoll">
+                   <property name="text">
+                    <string>roll:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBoxMotionBeginRoll">
+                   <property name="wrapping">
+                    <bool>true</bool>
+                   </property>
+                   <property name="accelerated">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximum">
+                    <double>6.280000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>0.010000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBoxMotionEnd">
+                <property name="title">
+                 <string>End</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_4">
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="verticalSpacing">
+                  <number>0</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="labelMotionEndYaw">
+                   <property name="text">
+                    <string>yaw:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBoxMotionEndYaw">
+                   <property name="wrapping">
+                    <bool>true</bool>
+                   </property>
+                   <property name="accelerated">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximum">
+                    <double>6.280000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>0.010000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="labelMotionEndPitch">
+                   <property name="text">
+                    <string>pitch:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBoxMotionEndPitch">
+                   <property name="wrapping">
+                    <bool>true</bool>
+                   </property>
+                   <property name="accelerated">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximum">
+                    <double>6.280000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>0.010000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="labelMotionEndRoll">
+                   <property name="text">
+                    <string>roll:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBoxMotionEndRoll">
+                   <property name="wrapping">
+                    <bool>true</bool>
+                   </property>
+                   <property name="accelerated">
+                    <bool>true</bool>
+                   </property>
+                   <property name="maximum">
+                    <double>6.280000000000000</double>
+                   </property>
+                   <property name="singleStep">
+                    <double>0.010000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBoxMotionTimeline">
+             <property name="title">
+              <string>Timeline</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <item>
+               <widget class="QPushButton" name="pushButtonStartStopMotion">
+                <property name="icon">
+                 <iconset resource="../resources.qrc">
+                  <normaloff>:/resource/img/bench_run.png</normaloff>:/resource/img/bench_run.png</iconset>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSlider" name="horizontalSliderMotion">
+                <property name="maximum">
+                 <number>1000</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelSliderMotionValue">
+                <property name="minimumSize">
+                 <size>
+                  <width>25</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>25</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>DejaVu Sans Mono</family>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>0</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabSceneRendering">
+          <attribute name="title">
+           <string>Rendering</string>
+          </attribute>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QGroupBox" name="groupBoxSceneRenderingView">
+             <property name="title">
+              <string>View</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_3">
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="checkBoxSceneCullFaces">
+                <property name="text">
+                 <string>Cull faces</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QCheckBox" name="checkBoxSceneRenderingWireframe">
+                <property name="text">
+                 <string>Wireframe</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacerSceneRendering">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="widgetGroupConfiguration" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="widgetGroupConfigurationButtons" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QToolButton" name="toolButtonConvert">
+            <property name="toolTip">
+             <string>Recalculate configuration space</string>
+            </property>
+            <property name="text">
+             <string>Recalculate configuration space</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/recalculate.png</normaloff>:/resource/img/recalculate.png</iconset>
+            </property>
+            <property name="popupMode">
+             <enum>QToolButton::InstantPopup</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="lineSeparatoRightOne">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonAddPredicate">
+            <property name="toolTip">
+             <string>Add a predicate...</string>
+            </property>
+            <property name="text">
+             <string>Add a predicate...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/addnew.png</normaloff>:/resource/img/addnew.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonOpenConfigurationCSP">
+            <property name="toolTip">
+             <string>Open a configuration space...</string>
+            </property>
+            <property name="text">
+             <string>Open a configuration space...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/open.png</normaloff>:/resource/img/open.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="lineSeparatorRightTwo">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonConfigurationCameraArcBall">
+            <property name="toolTip">
+             <string>Set arcball camera</string>
+            </property>
+            <property name="text">
+             <string>Set arcball camera</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/arcballcamera.png</normaloff>:/resource/img/arcballcamera.png</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonConfigurationCameraFlying">
+            <property name="toolTip">
+             <string>Set flying camera</string>
+            </property>
+            <property name="text">
+             <string>Set flying camera</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/flycamera.png</normaloff>:/resource/img/flycamera.png</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonConfigurationCameraAutomatic">
+            <property name="toolTip">
+             <string>Set automatic camera</string>
+            </property>
+            <property name="text">
+             <string>Set automatic camera</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../resources.qrc">
+              <normaloff>:/resource/img/automatic.png</normaloff>:/resource/img/automatic.png</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacerConfigurationButtons">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widgetConfigurationViewContainer" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <property name="margin">
+           <number>0</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTabWidget" name="tabWidgetConfiguration">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>240</height>
+          </size>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tabConfigurationObjects">
+          <attribute name="title">
+           <string>Predicates</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetConfigurationObjects">
+             <property name="contextMenuPolicy">
+              <enum>Qt::CustomContextMenu</enum>
+             </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::SingleSelection</enum>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <attribute name="horizontalHeaderStretchLastSection">
+              <bool>true</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>Type</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Visible</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Information</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widgetConfigurationObjectOperations" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <property name="margin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="labelConfigurationObjectDelete">
+                <property name="text">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot; &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Delete&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelConfigurationObjectClear">
+                <property name="text">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot; &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Clear&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacerConfigurationObjectOperations">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabConfigurationSettings">
+          <attribute name="title">
+           <string>Settings</string>
+          </attribute>
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QGroupBox" name="groupBoxModifiers">
+             <property name="title">
+              <string>Modifiers</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <property name="spacing">
+               <number>1</number>
+              </property>
+              <property name="topMargin">
+               <number>1</number>
+              </property>
+              <property name="bottomMargin">
+               <number>1</number>
+              </property>
+              <item>
+               <widget class="QCheckBox" name="checkBoxDoNotAskAboutInduced">
+                <property name="text">
+                 <string>Do not ask about induced primitives</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBoxSkipAddingQSICs">
+                <property name="text">
+                 <string>Skip adding induced QSICs</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBoxSkipAddingQSIPs">
+                <property name="text">
+                 <string>Skip adding induced QSIPs</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBoxSkipQuadricsMeshing">
+                <property name="text">
+                 <string>Skip quadrics meshing</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBoxSkipQSICsMeshing">
+                <property name="text">
+                 <string>Skip QSICs meshing</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBoxSkipQSIPsMeshing">
+                <property name="text">
+                 <string>Skip QSIPs meshing</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Cell neighbour collect algorithm:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBoxCellNeighbourCollectAlgorithm">
+                <property name="currentIndex">
+                 <number>2</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Naive O(n^2 l)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Optimized O(n l^2)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Optimal O(n l)</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBoxSurfaceMeshCriteria">
+             <property name="title">
+              <string>Surface mesh criteria</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout">
+              <property name="fieldGrowthPolicy">
+               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+              </property>
+              <property name="verticalSpacing">
+               <number>1</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="labelSurfaceMeshAngularBound">
+                <property name="text">
+                 <string>angular bound</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEditSurfaceMeshAngularBound">
+                <property name="text">
+                 <string>30</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="labelSurfaceMeshRadiusBound">
+                <property name="text">
+                 <string>radius bound</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEditSurfaceMeshRadiusBound">
+                <property name="text">
+                 <string>0.12</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="labelSurfaceMeshDistanceBound">
+                <property name="text">
+                 <string>distance bound</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEditSurfaceMeshDistanceBound">
+                <property name="text">
+                 <string>0.12</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widgetGroupConfigurationSettingsOther" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="margin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QGroupBox" name="groupBoxCurveMeshCriteria">
+                <property name="title">
+                 <string>Curve mesh criteria</string>
+                </property>
+                <layout class="QFormLayout" name="formLayout_2">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="labelCurveMeshRadiusBound">
+                   <property name="text">
+                    <string>radius bound</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="lineEditCurveMeshRadiusBound">
+                   <property name="text">
+                    <string>0.05</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widgetGroupConfigurationSettingsVisibility" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <item>
+                  <widget class="QWidget" name="widgetGroupSpinQsipVisibility" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_8">
+                    <property name="margin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="labelSpinQsipVisibility">
+                      <property name="text">
+                       <string>Spin QSIPs:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonShowQsips">
+                      <property name="maximumSize">
+                       <size>
+                        <width>60</width>
+                        <height>18</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>8</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Show</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonHideQsips">
+                      <property name="maximumSize">
+                       <size>
+                        <width>60</width>
+                        <height>18</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>8</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Hide</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widgetGroupSpinQsicVisibility" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_4">
+                    <property name="margin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="labelSpinQsicVisibility">
+                      <property name="text">
+                       <string>Spin QSICs:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonShowQsics">
+                      <property name="maximumSize">
+                       <size>
+                        <width>60</width>
+                        <height>18</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>8</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Show</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonHideQsics">
+                      <property name="maximumSize">
+                       <size>
+                        <width>60</width>
+                        <height>18</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>8</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Hide</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widgetGroupSpinQuadricVisibility" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_5">
+                    <property name="margin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="labelSpinQuadricVisibility">
+                      <property name="text">
+                       <string>Spin quadrics:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonShowQuadrics">
+                      <property name="maximumSize">
+                       <size>
+                        <width>60</width>
+                        <height>18</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>8</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Show</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonHideQuadrics">
+                      <property name="maximumSize">
+                       <size>
+                        <width>60</width>
+                        <height>18</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>8</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Hide</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabConfigurationRendering">
+          <attribute name="title">
+           <string>Rendering</string>
+          </attribute>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QGroupBox" name="groupBoxConfigurationRenderingView">
+             <property name="title">
+              <string>View</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_4">
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="checkBoxConfigurationCullFaces">
+                <property name="text">
+                 <string>Cull faces</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QCheckBox" name="checkBoxConfigurationRenderingWireframe">
+                <property name="text">
+                 <string>Wireframe</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacerConfigurationRendering">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabConfigurationConsole">
+          <attribute name="title">
+           <string>Console</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QTextEdit" name="textEditConfigurationConsole">
+             <property name="font">
+              <font>
+               <family>DejaVu Sans Mono</family>
+              </font>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widgetConfigurationConsoleOperations" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <property name="margin">
+               <number>0</number>
+              </property>
+              <item>
+               <spacer name="horizontalConfigurationConsoleOperations">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelConfigurationConsoleClear">
+                <property name="text">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot; &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Clear&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
