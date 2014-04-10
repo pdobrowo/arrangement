@@ -108,6 +108,7 @@ LIBS += -lgomp
 
 # CS
 INCLUDEPATH += "../libcs/include"
+INCLUDEPATH += "../libcs/3rdparty"
 LIBS += -L"../libcs/bin"
 
 win32-g++:{
