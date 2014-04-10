@@ -83,8 +83,8 @@ void PredicateH::on_pushButtonExample3_clicked()
 
 void PredicateH::on_pushButtonRandom_clicked()
 {
-    Vector_3_Z v = CS::Benchmark<Kernel_Z>::randomVector();
-    Plane_3_Z p = CS::Benchmark<Kernel_Z>::randomPlane();
+    Vector_3_Z v = CS::Benchmark<Kernel_Z>::random_vector();
+    Plane_3_Z p = CS::Benchmark<Kernel_Z>::random_plane();
 
     long vx = 0, vy = 0, vz = 0;
     long pa = 0, pb = 0, pc = 0, pd = 0;

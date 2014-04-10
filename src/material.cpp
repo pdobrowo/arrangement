@@ -42,9 +42,9 @@ static void setMaterial(GLfloat ambient[4],
 
 void setDiffuse(const QColor &diffuse)
 {
-    GLfloat diffuseMaterial[] = { diffuse.redF(),
-                                  diffuse.greenF(),
-                                  diffuse.blueF(),
+    GLfloat diffuseMaterial[] = { static_cast<GLfloat>(diffuse.redF()),
+                                  static_cast<GLfloat>(diffuse.greenF()),
+                                  static_cast<GLfloat>(diffuse.blueF()),
                                   1.0f};
 
     setMaterial(NO_MATERIAL,
@@ -59,14 +59,14 @@ void setDiffuseSpecularShininess(
     const QColor &specular,
     qreal shininess)
 {
-    GLfloat diffuseMaterial[] = { diffuse.redF(),
-                                  diffuse.greenF(),
-                                  diffuse.blueF(),
+    GLfloat diffuseMaterial[] = { static_cast<GLfloat>(diffuse.redF()),
+                                  static_cast<GLfloat>(diffuse.greenF()),
+                                  static_cast<GLfloat>(diffuse.blueF()),
                                   1.0f};
 
-    GLfloat specularMaterial[] = { specular.redF(),
-                                   specular.greenF(),
-                                   specular.blueF(),
+    GLfloat specularMaterial[] = { static_cast<GLfloat>(specular.redF()),
+                                   static_cast<GLfloat>(specular.greenF()),
+                                   static_cast<GLfloat>(specular.blueF()),
                                    1.0f};
 
     setMaterial(NO_MATERIAL,

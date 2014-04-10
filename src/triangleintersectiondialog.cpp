@@ -80,12 +80,12 @@ void TriangleIntersectionDialog::on_pushButtonExample1_clicked()
 
 void TriangleIntersectionDialog::on_pushButtonRandom_clicked()
 {
-    Vector_3_Z k = CS::Benchmark<Kernel_Z>::randomVector();
-    Vector_3_Z l = CS::Benchmark<Kernel_Z>::randomVector();
-    Vector_3_Z m = CS::Benchmark<Kernel_Z>::randomVector();
-    Vector_3_Z a = CS::Benchmark<Kernel_Z>::randomVector();
-    Vector_3_Z b = CS::Benchmark<Kernel_Z>::randomVector();
-    Vector_3_Z c = CS::Benchmark<Kernel_Z>::randomVector();
+    Vector_3_Z k = CS::Benchmark<Kernel_Z>::random_vector();
+    Vector_3_Z l = CS::Benchmark<Kernel_Z>::random_vector();
+    Vector_3_Z m = CS::Benchmark<Kernel_Z>::random_vector();
+    Vector_3_Z a = CS::Benchmark<Kernel_Z>::random_vector();
+    Vector_3_Z b = CS::Benchmark<Kernel_Z>::random_vector();
+    Vector_3_Z c = CS::Benchmark<Kernel_Z>::random_vector();
 
     long kx = 0, ky = 0, kz = 0;
     long lx = 0, ly = 0, lz = 0;
