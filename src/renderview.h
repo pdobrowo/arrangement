@@ -149,7 +149,7 @@ private:
 
     // meshes
     boost::scoped_ptr<GridMesh> m_grid;
-    boost::scoped_ptr<BallMesh> m_qsicBall;
+    boost::scoped_ptr<BallMesh> m_qsipBall;
     boost::scoped_ptr<BallMesh> m_unitBall;
 
     // axies

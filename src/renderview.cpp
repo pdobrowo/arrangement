@@ -259,7 +259,7 @@ void RenderView::initializeGL()
     m_grid->setTextColor(m_textColor);
     m_grid->setTextFont(m_textFont);
 
-    m_qsicBall.reset(new BallMesh(this, QSIP_RADIUS, QSIP_SLICES, QSIP_STACKS));
+    m_qsipBall.reset(new BallMesh(this, QSIP_RADIUS, QSIP_SLICES, QSIP_STACKS));
 
     m_unitBall.reset(new BallMesh(this, 1.0, QSIP_SLICES, QSIP_STACKS));
 }
@@ -478,7 +478,7 @@ void RenderView::renderQsip(const Qsip_spin_3_Z_ptr spin, bool visible)
     // draw qsic
     glPushMatrix();
         glTranslated(spin->s12(), spin->s23(), spin->s31());
-        m_qsicBall->render();
+        m_qsipBall->render();
     glPopMatrix();
 }
 

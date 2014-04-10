@@ -6,7 +6,7 @@ QT += core gui opengl
 
 TARGET = arrangement
 TEMPLATE = app
-DESTDIR = ../bin
+DESTDIR = $$PWD/bin
 CONFIG += silent
 
 GXX_WARNING_FLAGS = \
@@ -101,10 +101,6 @@ CONFIG(release, debug|release) {
     QMAKE_CXXFLAGS -= -O2
     QMAKE_CXXFLAGS += -O3 -march=core2
 }
-
-# parallel
-QMAKE_CXXFLAGS += -fopenmp
-LIBS += -lgomp
 
 # CS
 INCLUDEPATH += "../libcs/include"

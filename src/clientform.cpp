@@ -871,8 +871,17 @@ void ClientForm::createCellConfigurationSpace(SceneObject::Type type)
 
 void ClientForm::createExactConfigurationSpace(SceneObject::Type type)
 {
-    bool suppressQsicCalculation = ui->checkBoxSkipQSICsMeshing->isChecked();
-    bool suppressQsipCalculation = ui->checkBoxSkipQSIPsMeshing->isChecked();
+    // meshing
+    bool suppressQuadricMeshing = ui->checkBoxSkipQuadricsMeshing->isChecked();
+    bool suppressQsicMeshing = ui->checkBoxSkipQSICsMeshing->isChecked();
+    bool suppressQsipMeshing = ui->checkBoxSkipQSIPsMeshing->isChecked();
+
+    // calculation
+    bool suppressQsicCalculation = ui->checkBoxSkipAddingQSICs->isChecked();
+    bool suppressQsipCalculation = ui->checkBoxSkipAddingQSIPs->isChecked();
+
+    // options
+    bool optionViewClipPlane = ui->checkBoxOptionViewClipPlane->isChecked();
 
     // Note:
     // for the exact scenes, we will use triangulated or ball-only
@@ -977,6 +986,10 @@ void ClientForm::createExactConfigurationSpace(SceneObject::Type type)
                     movable.begin(), movable.end(),
                     obstacle.begin(), obstacle.end(),
                     Spin_configuration_space_3::Exact_BB_Z::Parameters(suppressQsicCalculation, suppressQsipCalculation),
+                    suppressQuadricMeshing,
+                    suppressQsicMeshing,
+                    suppressQsipMeshing,
+                    optionViewClipPlane,
                     m_widgetConfigurationView));
         }
         break;
@@ -1027,6 +1040,10 @@ void ClientForm::createExactConfigurationSpace(SceneObject::Type type)
                     movable.begin(), movable.end(),
                     obstacle.begin(), obstacle.end(),
                     Spin_configuration_space_3::Exact_TT_Z::Parameters(suppressQsicCalculation, suppressQsipCalculation),
+                    suppressQuadricMeshing,
+                    suppressQsicMeshing,
+                    suppressQsipMeshing,
+                    optionViewClipPlane,
                     m_widgetConfigurationView));
         }
         break;

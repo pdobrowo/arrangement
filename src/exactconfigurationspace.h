@@ -24,6 +24,7 @@
 #include "genericrouter.h"
 #include "trianglelistmesh.h"
 #include "polyconemesh.h"
+#include "ballmesh.h"
 #include "material.h"
 #include <QDataStream>
 #include <boost/scoped_array.hpp>
@@ -41,14 +42,21 @@ struct ExactConfigurationSpaceTag
 class ExactConfigurationSpace
     : public ConfigurationSpace
 {
+    typedef Spin_qsip_mesh_3_Z::Spin_3 Spin_3;
+
 public:
     template<class Configuration_, typename InputIterator>
     ExactConfigurationSpace(const ExactConfigurationSpaceTag<Configuration_> &,
                            InputIterator robot_begin, InputIterator robot_end,
                            InputIterator obstacle_begin, InputIterator obstacle_end,
                            const typename Configuration_::Parameters &parameters,
+                           bool suppressQuadricMeshing,
+                           bool suppressQsicMeshing,
+                           bool suppressQsipMeshing,
+                           bool optionViewClipPlane,
                            QGLWidget *gl)
-        : ConfigurationSpace(gl)
+        : ConfigurationSpace(gl),
+          m_optionViewClipPlane(optionViewClipPlane)
     {
         typedef Configuration_                                  Configuration;
         //typedef typename Configuration::Parameters              Parameters;
@@ -67,67 +75,100 @@ public:
         // prepare
         typedef typename Representation::Spin_quadric_const_iterator Spin_quadric_const_iterator;
 
-        for (Spin_quadric_const_iterator spinQuadricIterator = rep.spin_quadrics_begin();
-             spinQuadricIterator != rep.spin_quadrics_end(); ++spinQuadricIterator)
+        if (!suppressQuadricMeshing)
         {
-            Spin_quadric_mesh_3_Z mesher(*spinQuadricIterator);
+            for (Spin_quadric_const_iterator spinQuadricIterator = rep.spin_quadrics_begin();
+                 spinQuadricIterator != rep.spin_quadrics_end(); ++spinQuadricIterator)
+            {
+                Spin_quadric_mesh_3_Z mesher(*spinQuadricIterator);
 
-            double angular_bound = 30;
-            double radius_bound = 0.03;
-            double distance_bound = 0.03;
+                double angular_bound = 30;
+                double radius_bound = 0.1;
+                double distance_bound = 0.1;
 
-            Mesh_smooth_triangle_list_3_Z_ptr left(new Mesh_smooth_triangle_list_3_Z());
-            Mesh_smooth_triangle_list_3_Z_ptr right(new Mesh_smooth_triangle_list_3_Z());
+                Mesh_smooth_triangle_list_3_Z_ptr left(new Mesh_smooth_triangle_list_3_Z());
+                Mesh_smooth_triangle_list_3_Z_ptr right(new Mesh_smooth_triangle_list_3_Z());
 
-            mesher.mesh_triangle_soup(std::back_inserter(*left),
-                                      std::back_inserter(*right),
-                                      angular_bound,
-                                      radius_bound,
-                                      distance_bound);
+                mesher.mesh_triangle_soup(std::back_inserter(*left),
+                                          std::back_inserter(*right),
+                                          angular_bound,
+                                          radius_bound,
+                                          distance_bound);
 
-            // create triangle lists
-            TriangleListMeshPtr leftMesh(new TriangleListMesh(m_gl, left));
-            TriangleListMeshPtr rightMesh(new TriangleListMesh(m_gl, right));
+                // create triangle lists
+                TriangleListMeshPtr leftMesh(new TriangleListMesh(m_gl, left));
+                TriangleListMeshPtr rightMesh(new TriangleListMesh(m_gl, right));
 
-            // store triangle lists
-            m_triangleListMeshPairs.push_back(std::make_pair(leftMesh, rightMesh));
+                // store triangle lists
+                m_triangleListMeshPairs.push_back(std::make_pair(leftMesh, rightMesh));
+            }
         }
 
         // QSICs
         typedef typename Representation::Qsic_const_iterator Qsic_const_iterator;
         typedef typename Representation::Qsic_handle Qsic_handle;
 
-        for (Qsic_const_iterator qsicIterator = rep.qsics_begin();
-             qsicIterator != rep.qsics_end(); ++qsicIterator)
+        if (!suppressQsicMeshing)
         {
-            Qsic_handle qsic = *qsicIterator;
-            Spin_qsic_mesh_3_Z mesher(*qsic);
-
-            // each component
-            for (size_t component = 0; component != mesher.size_of_components(); ++component)
+            for (Qsic_const_iterator qsicIterator = rep.qsics_begin();
+                 qsicIterator != rep.qsics_end(); ++qsicIterator)
             {
-                // FIXME: if the component is not one dimensional, ignore it
-                if (qsic->component_dimension(component) != 1)
-                    continue;
+                Qsic_handle qsic = *qsicIterator;
+                Spin_qsic_mesh_3_Z mesher(*qsic);
 
-                // evaluate curve
-                Qsic_spin_list_3_Z_ptr spinList(new Qsic_spin_list_3_Z());
+                // each component
+                for (size_t component = 0; component != mesher.size_of_components(); ++component)
+                {
+                    // FIXME: if the component is not one dimensional, ignore it
+                    if (qsic->component_dimension(component) != 1)
+                        continue;
 
-                double radiusBound = 0.1;
+                    // evaluate curve
+                    Qsic_spin_list_3_Z_ptr spinList(new Qsic_spin_list_3_Z());
 
-                mesher.mesh_component(*spinList, component, radiusBound);
+                    double radiusBound = 0.1;
 
-                Qsic_spin_list_3_Z_ptr negSpinList(new Qsic_spin_list_3_Z());
+                    mesher.mesh_component(*spinList, component, radiusBound);
 
-                foreach (const Qsic_spin_3_Z &spin, *spinList)
-                    negSpinList->push_back(-spin);
+                    Qsic_spin_list_3_Z_ptr negSpinList(new Qsic_spin_list_3_Z());
 
-                // create poly cones
-                PolyConeMeshPtr positivePolyCone(new PolyConeMesh(m_gl, spinList, 0.05, 12));
-                PolyConeMeshPtr negativePolyCone(new PolyConeMesh(m_gl, negSpinList, 0.05, 12));
+                    foreach (const Qsic_spin_3_Z &spin, *spinList)
+                        negSpinList->push_back(-spin);
 
-                // store poly cones
-                m_polyConeMeshPairs.push_back(std::make_pair(positivePolyCone, negativePolyCone));
+                    // create poly cones
+                    PolyConeMeshPtr positivePolyCone(new PolyConeMesh(m_gl, spinList, 0.02, 12));
+                    PolyConeMeshPtr negativePolyCone(new PolyConeMesh(m_gl, negSpinList, 0.02, 12));
+
+                    // store poly cones
+                    m_polyConeMeshPairs.push_back(std::make_pair(positivePolyCone, negativePolyCone));
+                }
+            }
+        }
+
+        // QSIPs
+        typedef typename Representation::Qsip_const_iterator Qsip_const_iterator;
+        typedef typename Representation::Qsip_handle Qsip_handle;
+
+        if (!suppressQsipMeshing)
+        {
+            m_pointMesh.reset(new BallMesh(gl, 0.025, 12, 12));
+
+            for (Qsip_const_iterator qsipIterator = rep.qsips_begin();
+                 qsipIterator != rep.qsips_end(); ++qsipIterator)
+            {
+                Qsip_handle qsip = *qsipIterator;
+                Spin_qsip_mesh_3_Z mesher(*qsip);
+
+                // each component
+                for (size_t index = 0; index != mesher.size_of_points(); ++index)
+                {
+                    // evaluate point
+                    Spin_3 point;
+                    mesher.mesh_point(point, index);
+
+                    // store points
+                    m_points.push_back(point);
+                }
             }
         }
 
@@ -175,7 +216,8 @@ public:
 
     virtual void render()
     {
-        enableViewClipPlane();
+        if (m_optionViewClipPlane)
+            enableViewClipPlane();
 
         Material::setDiffuseSpecularShininess(QColor(238, 144, 20));
 
@@ -197,7 +239,27 @@ public:
             polyConeIterator->second->render();
         }
 
-        disableViewClipPlane();
+        // render balls
+        Material::setDiffuseSpecularShininess(QColor(255, 127, 0));
+
+        for (Points::iterator pointsIterator = m_points.begin();
+             pointsIterator != m_points.end(); ++pointsIterator)
+        {
+            if (pointsIterator->s0() >= 0)
+                m_pointMesh->renderTranslated(pointsIterator->s12(), pointsIterator->s23(), pointsIterator->s31());
+        }
+
+        Material::setDiffuseSpecularShininess(QColor(127, 255, 0));
+
+        for (Points::iterator pointsIterator = m_points.begin();
+             pointsIterator != m_points.end(); ++pointsIterator)
+        {
+            if (pointsIterator->s0() < 0)
+                m_pointMesh->renderTranslated(pointsIterator->s12(), pointsIterator->s23(), pointsIterator->s31());
+        }
+
+        if (m_optionViewClipPlane)
+            disableViewClipPlane();
     }
 
     virtual bool saveToStream(QDataStream &stream)
@@ -235,9 +297,17 @@ public:
 private:
     typedef std::vector<std::pair<TriangleListMeshPtr, TriangleListMeshPtr> > TriangleListMeshPairs;
     typedef std::vector<std::pair<PolyConeMeshPtr, PolyConeMeshPtr> > PolyConeMeshPairs;
+    typedef std::vector<Spin_3> Points;
 
-    TriangleListMeshPairs   m_triangleListMeshPairs;
-    PolyConeMeshPairs       m_polyConeMeshPairs;
+    // options
+    bool                        m_optionViewClipPlane;
+
+    // visible data
+    TriangleListMeshPairs       m_triangleListMeshPairs;
+    PolyConeMeshPairs           m_polyConeMeshPairs;
+    Points                      m_points;
+
+    boost::scoped_ptr<BallMesh> m_pointMesh;
 };
 
 typedef boost::shared_ptr<ExactConfigurationSpace> ExactConfigurationSpacePtr;

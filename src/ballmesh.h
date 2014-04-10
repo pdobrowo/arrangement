@@ -28,6 +28,8 @@ class BallMesh
 public:
     BallMesh(QGLWidget *gl, double radius, int slices, int stacks);
 
+    void renderTranslated(double x, double y, double z);
+
 protected:
     virtual void drawMesh();
 

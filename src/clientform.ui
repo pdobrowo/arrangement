@@ -916,12 +916,13 @@ p, li { white-space: pre-wrap; }
               <property name="spacing">
                <number>1</number>
               </property>
-              <property name="topMargin">
-               <number>1</number>
-              </property>
-              <property name="bottomMargin">
-               <number>1</number>
-              </property>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>Objects:</string>
+                </property>
+               </widget>
+              </item>
               <item>
                <widget class="QCheckBox" name="checkBoxDoNotAskAboutInduced">
                 <property name="text">
@@ -947,6 +948,13 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Meshing:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QCheckBox" name="checkBoxSkipQuadricsMeshing">
                 <property name="text">
                  <string>Skip quadrics meshing</string>
@@ -966,6 +974,200 @@ p, li { white-space: pre-wrap; }
                  <string>Skip QSIPs meshing</string>
                 </property>
                </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBoxGroupConfigurationSettingsVisibility">
+             <property name="title">
+              <string>Other</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="spacing">
+               <number>1</number>
+              </property>
+              <item>
+               <widget class="QWidget" name="widgetGroupSpinQsipVisibility" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="labelSpinQsipVisibility">
+                   <property name="text">
+                    <string>Spin QSIPs:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButtonShowQsips">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>18</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>8</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Show</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButtonHideQsips">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>18</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>8</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Hide</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widgetGroupSpinQsicVisibility" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="labelSpinQsicVisibility">
+                   <property name="text">
+                    <string>Spin QSICs:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButtonShowQsics">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>18</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>8</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Show</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButtonHideQsics">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>18</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>8</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Hide</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widgetGroupSpinQuadricVisibility" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="labelSpinQuadricVisibility">
+                   <property name="text">
+                    <string>Spin quadrics:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButtonShowQuadrics">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>18</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>8</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Show</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButtonHideQuadrics">
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>18</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>8</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Hide</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
               </item>
               <item>
                <widget class="QLabel" name="label">
@@ -996,85 +1198,6 @@ p, li { white-space: pre-wrap; }
                 </item>
                </widget>
               </item>
-              <item>
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="groupBoxSurfaceMeshCriteria">
-             <property name="title">
-              <string>Surface mesh criteria</string>
-             </property>
-             <layout class="QFormLayout" name="formLayout">
-              <property name="fieldGrowthPolicy">
-               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-              </property>
-              <property name="verticalSpacing">
-               <number>1</number>
-              </property>
-              <item row="0" column="0">
-               <widget class="QLabel" name="labelSurfaceMeshAngularBound">
-                <property name="text">
-                 <string>angular bound</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEditSurfaceMeshAngularBound">
-                <property name="text">
-                 <string>30</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="labelSurfaceMeshRadiusBound">
-                <property name="text">
-                 <string>radius bound</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="lineEditSurfaceMeshRadiusBound">
-                <property name="text">
-                 <string>0.12</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="labelSurfaceMeshDistanceBound">
-                <property name="text">
-                 <string>distance bound</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QLineEdit" name="lineEditSurfaceMeshDistanceBound">
-                <property name="text">
-                 <string>0.12</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
@@ -1087,6 +1210,72 @@ p, li { white-space: pre-wrap; }
               <property name="margin">
                <number>0</number>
               </property>
+              <item>
+               <widget class="QGroupBox" name="groupBoxSurfaceMeshCriteria">
+                <property name="title">
+                 <string>Surface mesh criteria</string>
+                </property>
+                <layout class="QFormLayout" name="formLayout">
+                 <property name="fieldGrowthPolicy">
+                  <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                 </property>
+                 <property name="verticalSpacing">
+                  <number>1</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="labelSurfaceMeshAngularBound">
+                   <property name="text">
+                    <string>angular bound</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="lineEditSurfaceMeshAngularBound">
+                   <property name="text">
+                    <string>30</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="labelSurfaceMeshRadiusBound">
+                   <property name="text">
+                    <string>radius bound</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLineEdit" name="lineEditSurfaceMeshRadiusBound">
+                   <property name="text">
+                    <string>0.12</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="labelSurfaceMeshDistanceBound">
+                   <property name="text">
+                    <string>distance bound</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLineEdit" name="lineEditSurfaceMeshDistanceBound">
+                   <property name="text">
+                    <string>0.12</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
               <item>
                <widget class="QGroupBox" name="groupBoxCurveMeshCriteria">
                 <property name="title">
@@ -1108,168 +1297,6 @@ p, li { white-space: pre-wrap; }
                    <property name="alignment">
                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                    </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widgetGroupConfigurationSettingsVisibility" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_6">
-                 <item>
-                  <widget class="QWidget" name="widgetGroupSpinQsipVisibility" native="true">
-                   <layout class="QHBoxLayout" name="horizontalLayout_8">
-                    <property name="margin">
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="labelSpinQsipVisibility">
-                      <property name="text">
-                       <string>Spin QSIPs:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButtonShowQsips">
-                      <property name="maximumSize">
-                       <size>
-                        <width>60</width>
-                        <height>18</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>8</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Show</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButtonHideQsips">
-                      <property name="maximumSize">
-                       <size>
-                        <width>60</width>
-                        <height>18</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>8</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Hide</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QWidget" name="widgetGroupSpinQsicVisibility" native="true">
-                   <layout class="QHBoxLayout" name="horizontalLayout_4">
-                    <property name="margin">
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="labelSpinQsicVisibility">
-                      <property name="text">
-                       <string>Spin QSICs:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButtonShowQsics">
-                      <property name="maximumSize">
-                       <size>
-                        <width>60</width>
-                        <height>18</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>8</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Show</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButtonHideQsics">
-                      <property name="maximumSize">
-                       <size>
-                        <width>60</width>
-                        <height>18</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>8</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Hide</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QWidget" name="widgetGroupSpinQuadricVisibility" native="true">
-                   <layout class="QHBoxLayout" name="horizontalLayout_5">
-                    <property name="margin">
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="labelSpinQuadricVisibility">
-                      <property name="text">
-                       <string>Spin quadrics:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButtonShowQuadrics">
-                      <property name="maximumSize">
-                       <size>
-                        <width>60</width>
-                        <height>18</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>8</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Show</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButtonHideQuadrics">
-                      <property name="maximumSize">
-                       <size>
-                        <width>60</width>
-                        <height>18</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>8</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Hide</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
                   </widget>
                  </item>
                 </layout>
@@ -1302,6 +1329,16 @@ p, li { white-space: pre-wrap; }
                <widget class="QCheckBox" name="checkBoxConfigurationRenderingWireframe">
                 <property name="text">
                  <string>Wireframe</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QCheckBox" name="checkBoxOptionViewClipPlane">
+                <property name="text">
+                 <string>Enable view clip plane</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>

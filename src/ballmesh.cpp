@@ -28,6 +28,14 @@ BallMesh::BallMesh(QGLWidget *gl, double radius, int slices, int stacks)
 {
 }
 
+void BallMesh::renderTranslated(double x, double y, double z)
+{
+    glPushMatrix();
+        glTranslated(x, y, z);
+        Mesh::render();
+    glPopMatrix();
+}
+
 void BallMesh::drawMesh()
 {
     GLUquadric *quadric;
