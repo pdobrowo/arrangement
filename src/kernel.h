@@ -23,16 +23,10 @@
 #include <CGAL/Cartesian.h>
 #include <CGAL/Homogeneous.h>
 #include <cs/Spin_kernel_3.h>
+#include <cs/Spin_inexact_kernel_3.h>
 #include <cs/Bigint.h>
 #include <boost/shared_ptr.hpp>
 #include <CGAL/Polyhedron_3.h>
-
-// Kernel is:
-//
-// * exact
-// * filtered
-// * cartesian
-// * bigint based
 
 // Kernel type
 typedef CGAL::Bigint                                    Z;
@@ -140,8 +134,6 @@ struct Spin_configuration_space_3
     typedef Kernel_Z::Spin_raster_configuration_space_3<Predicate_TT_3_Z>::Type   Raster_TT_Z;
     typedef Kernel_Z::Spin_raster_configuration_space_3<Predicate_BB_3_Z>::Type   Raster_BB_Z;
 
-    typedef Kernel_R::Spin_exact_configuration_space_3<Predicate_TT_3_R>::Type    Exact_TT_R;
-    typedef Kernel_R::Spin_exact_configuration_space_3<Predicate_BB_3_R>::Type    Exact_BB_R;
     typedef Kernel_R::Spin_cell_configuration_space_3<Predicate_TT_3_R>::Type     Cell_TT_R;
     typedef Kernel_R::Spin_cell_configuration_space_3<Predicate_BB_3_R>::Type     Cell_BB_R;
     typedef Kernel_R::Spin_raster_configuration_space_3<Predicate_TT_3_R>::Type   Raster_TT_R;

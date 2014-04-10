@@ -49,7 +49,7 @@ public:
         : ConfigurationSpace(gl)
     {
         typedef Configuration_                                  Configuration;
-        typedef typename Configuration::Parameters              Parameters;
+        //typedef typename Configuration::Parameters              Parameters;
         typedef typename Configuration::Representation          Representation;
         typedef typename Representation::Cell_const_iterator    Cell_const_iterator;
 

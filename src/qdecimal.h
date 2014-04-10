@@ -20,7 +20,7 @@
 #ifndef QDECIMAL_H
 #define QDECIMAL_H
 
-#include <QDecNumber.hh>
+#include <qdecimal/QDecNumber.hh>
 #include <QDataStream>
 #include <QByteArray>
 
@@ -29,7 +29,7 @@ typedef QDecNumber QDecimal;
 inline QDataStream &operator <<(QDataStream &dataStream, const QDecimal &decimal)
 {
     QByteArray byteArray = decimal.toString();
-    QString rep = QString::fromAscii(byteArray.data(), byteArray.size());
+    QString rep = QString::fromLatin1(byteArray.data(), byteArray.size());
     dataStream << rep;
     return dataStream;
 }
@@ -38,7 +38,7 @@ inline QDataStream &operator >>(QDataStream &dataStream, QDecimal &decimal)
 {
     QString rep;
     dataStream >> rep;
-    decimal.fromString(rep.toAscii().data());
+    decimal.fromString(rep.toLatin1().data());
     return dataStream;
 }
 

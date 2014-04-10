@@ -63,7 +63,7 @@ public:
         : ConfigurationSpace(gl)
     {
         typedef Configuration_                          Configuration;
-        typedef typename Configuration::Parameters      Parameters;
+        //typedef typename Configuration::Parameters      Parameters;
         typedef typename Configuration::Representation  Representation;
 
         // allow only resolutions which are powers of two (for 3d texture)

@@ -51,7 +51,7 @@ public:
         : ConfigurationSpace(gl)
     {
         typedef Configuration_                                  Configuration;
-        typedef typename Configuration::Parameters              Parameters;
+        //typedef typename Configuration::Parameters              Parameters;
         typedef typename Configuration::Representation          Representation;
 
         // create configuration space for given representation
