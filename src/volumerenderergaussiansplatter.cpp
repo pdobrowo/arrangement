@@ -71,6 +71,7 @@ VoxelGridReader::VoxelGridReader()
 {
     Voxels = 0;
     Resolution = 0;
+    Type = VoxelType_Imaginary;
     SetNumberOfInputPorts(0);
 }
 
@@ -166,6 +167,7 @@ VoxelListReader::VoxelListReader()
 {
     VoxelsBegin = 0;
     VoxelsEnd = 0;
+    Type = VoxelType_Imaginary;
     SetNumberOfInputPorts(0);
 }
 
