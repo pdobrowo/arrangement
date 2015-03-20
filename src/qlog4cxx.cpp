@@ -24,19 +24,20 @@
 #include <log4cxx/helpers/exception.h>
 #include <log4cxx/appenderskeleton.h>
 #include <log4cxx/spi/loggingevent.h>
-#include <boost/function.hpp>
-#include <boost/bind.hpp>
+#include <functional>
 #include <cassert>
 
 using namespace log4cxx;
 using namespace log4cxx::helpers;
+
+using namespace std::placeholders;
 
 namespace // anonymous
 {
 QLog4cxx *g_qLog4cxx = 0;
 } // namespace anonymous
 
-typedef boost::function<void (QString, QString, long long, QString)> LogMessageProc;
+typedef std::function<void (QString, QString, long long, QString)> LogMessageProc;
 
 class QtSignalAppender
     : public AppenderSkeleton
@@ -92,7 +93,7 @@ QLog4cxx::QLog4cxx(QObject *parent) :
 
     // configure internal appender
     QtSignalAppenderPtr appender(new QtSignalAppender());
-    appender->setLogMessageProc(boost::bind(&QLog4cxx::internalLogMessage, this, _1, _2, _3, _4));
+    appender->setLogMessageProc(std::bind(&QLog4cxx::internalLogMessage, this, _1, _2, _3, _4));
     log4cxx::BasicConfigurator::configure(appender);
 }
 

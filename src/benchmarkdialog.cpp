@@ -81,7 +81,8 @@ void TestThread::run()
     switch (m_test)
     {
         case 0: // H3 test
-            benchmark.random_H3_intersection_test(5, boost::bind(&TestThread::prereport, this, _1));
+            using std::placeholders::_1;
+            benchmark.random_H3_intersection_test(5, std::bind(&TestThread::prereport, this, _1));
             break;
     }
 

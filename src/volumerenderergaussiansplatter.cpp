@@ -32,7 +32,7 @@
 #include <GL/glew.h>
 #include <ostream>
 
-class VTK_IO_EXPORT VoxelGridReader
+class /*VTK_IO_EXPORT*/ VoxelGridReader
     : public vtkPolyDataAlgorithm
 {
 public:
@@ -128,7 +128,7 @@ int VoxelGridReader::RequestData(vtkInformation *, vtkInformationVector **, vtkI
     return 1;
 }
 
-class VTK_IO_EXPORT VoxelListReader
+class /*VTK_IO_EXPORT*/ VoxelListReader
     : public vtkPolyDataAlgorithm
 {
 public:
@@ -261,7 +261,7 @@ TriangleListMeshPtr VolumeRendererGaussianSplatter::meshVoxels(vtkPolyDataAlgori
     polyData->SetPoints(dataSource->GetOutput()->GetPoints());
 
     vtkSmartPointer<vtkGaussianSplatter> gaussianSplatter = vtkSmartPointer<vtkGaussianSplatter>::New();
-    gaussianSplatter->SetInput(polyData);
+    gaussianSplatter->SetInputData(polyData);
     gaussianSplatter->SetSampleDimensions(200, 200, 200);
     gaussianSplatter->SetRadius(0.02);
     gaussianSplatter->ScalarWarpingOff();

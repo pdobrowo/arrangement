@@ -109,7 +109,7 @@ Z decimalToZ(const QDecimal &decimal)
     return result;
 }
 
-const int MOTION_ANIMATION_TIME = 5000;
+//const int MOTION_ANIMATION_TIME = 5000;
 const int MAXIMUM_EXACT_TRUNCATION_DIGITS = 32;
 } // namespace anonymous
 
@@ -1525,6 +1525,7 @@ ClientForm::MotionMode ClientForm::motionMode() const
         return MotionMode_Motion;
 
     assert(0);
+    return MotionMode_Motion;
 }
 
 QQuaternion ClientForm::motionBeginRotation() const

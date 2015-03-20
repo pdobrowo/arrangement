@@ -18,21 +18,46 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 PROJECT(arrangement)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.11)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.9)
 
 # cmake find
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/../libcs/cmake)
 
 # settings
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
-SET(CMAKE_AUTOMOC ON)
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-# sys
-FIND_PACKAGE(Qt5Widgets)
-FIND_PACKAGE(Qt5Gui)
+# qt5
+FIND_PACKAGE(Qt5Widgets REQUIRED)
+FIND_PACKAGE(Qt5Gui REQUIRED)
+FIND_PACKAGE(Qt5OpenGL REQUIRED)
+
+SET(CMAKE_AUTOMOC ON)
+SET(CMAKE_AUTOUIC ON)
+SET(CMAKE_AUTORCC ON)
+
+# cs
+FIND_PACKAGE(CS REQUIRED)
+INCLUDE_DIRECTORIES(${CS_INCLUDE_DIR})
+
+# qdecimal
+INCLUDE_DIRECTORIES(${CS_3RD_INCLUDE_DIR}/qdecimal/include)
+LINK_DIRECTORIES(${CS_3RD_INCLUDE_DIR}/qdecimal/lib)
+
+# vtk
+FIND_PACKAGE(VTK REQUIRED)
+INCLUDE(${VTK_USE_FILE})
 
 # compiler settings
-SET(LIBCS_DEFAULT_CLANG_AND_GNU_FLAGS "-std=c++14 -Wall -Wextra")
+SET(ARRANGEMENT_DEFAULT_CLANG_AND_GNU_FLAGS "-std=c++11 -Wall -Wextra")
+
+IF(${CMAKE_CXX_COMPILER_ID} MATCHES Clang)
+ADD_DEFINITIONS(${ARRANGEMENT_DEFAULT_CLANG_AND_GNU_FLAGS})
+ENDIF(${CMAKE_CXX_COMPILER_ID} MATCHES Clang)
+
+IF(${CMAKE_CXX_COMPILER_ID} MATCHES GNU)
+ADD_DEFINITIONS(${ARRANGEMENT_DEFAULT_CLANG_AND_GNU_FLAGS})
+ENDIF(${CMAKE_CXX_COMPILER_ID} MATCHES GNU)
 
 # output directory
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
@@ -142,6 +167,41 @@ SET(arrangement_SOURCES
     src/volumerenderertexture3d.cpp
 )
 
+IF (WIN32)
+    SET(arrangement_SOURCES
+        windowsicon.rc
+        ${arrangement_SOURCES}
+    )
+ENDIF(WIN32)
+
+
+# resources
+SET(arrangement_RESOURCES
+    resources.qrc
+)
+
+# libs
+SET(arrangement_LIBS
+    # qt5
+    Qt5::Core
+    Qt5::Widgets
+    Qt5::Gui
+    Qt5::OpenGL
+
+    # other
+    qdecimal
+    decnumber    
+
+    # sys
+    GL
+    GLU
+    gle
+    GLEW
+    log4cxx
+    ${VTK_LIBRARIES}
+)
+
 # bin
-add_executable(arrangement ${arrangement_SOURCES})
-target_link_libraries(arrangement ${CS_LIBRARIES} Qt5::Widgets Qt5::Gui)
+add_executable(arrangement ${arrangement_SOURCES} ${arrangement_RESOURCES})
+target_link_libraries(arrangement ${CS_LIBRARIES} ${arrangement_LIBS})
+

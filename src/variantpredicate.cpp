@@ -27,8 +27,6 @@ namespace
 {
     static Kernel_Z g_kernel;
     static Kernel_R r_kernel;
-    inline void dummyKernelProcZ() { (void)g_kernel; }
-    inline void dummyKernelProcR() { (void)r_kernel; }
 }
 
 void clearAndParse(const std::string &str, CGAL::Bigint &out)
