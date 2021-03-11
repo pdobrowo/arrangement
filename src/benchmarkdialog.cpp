@@ -25,12 +25,10 @@
 
 BenchmarkDialog::BenchmarkDialog(QWidget *parent) :
     QDialog(parent),
+    m_rand(static_cast<quint32>(time(0))),
     ui(new Ui::BenchmarkDialog)
 {
     ui->setupUi(this);
-
-    // initialze randomness
-    qsrand(static_cast<uint>(time(0)));
 
     // buttons
     ui->pushButtonRun->setEnabled(true);

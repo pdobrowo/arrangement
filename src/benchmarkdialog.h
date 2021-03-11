@@ -21,6 +21,7 @@
 #define BENCHMARKDIALOG_H
 
 #include "variantpredicate.h"
+#include <QRandomGenerator>
 #include <QScopedPointer>
 #include <QDialog>
 #include <QThread>
@@ -64,6 +65,7 @@ public:
 
 private:
     QScopedPointer<TestThread> m_test;
+    QRandomGenerator m_rand;
 
 private slots:
     void on_pushButtonRun_clicked();
